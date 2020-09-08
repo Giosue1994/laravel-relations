@@ -15,4 +15,8 @@ class Album extends Model
     public function songs() {
       return $this->hasMany('App\Song');
     }
+
+    public function covers() {
+      return $this->hasOne('App\Cover');
+    }
 }

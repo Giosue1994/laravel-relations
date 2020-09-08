@@ -1,4 +1,7 @@
 <h1>Titolo Album: {{ $album->title }}</h1>
+<div>
+  <img src="{{ $album->covers->url }}" alt="{{ $album->title }}">
+</div>
 <p>Artista: {{ $album->artist }}</p>
 <p>Anno: {{ $album->year }}</p>
 
