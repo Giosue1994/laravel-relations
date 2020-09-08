@@ -15,7 +15,7 @@ class CoversTableSeeder extends Seeder
     {
       for ($i=0; $i < 3; $i++) {
         $new_cover = new Cover();
-        $new_cover->url = $faker->imageUrl();
+        $new_cover->url = $faker->imageUrl(200, 200);
         $new_cover->album_id = $i + 1;
         $new_cover->save();
       }

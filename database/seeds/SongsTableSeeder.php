@@ -17,7 +17,7 @@ class SongsTableSeeder extends Seeder
 
         for ($j=0; $j < 8; $j++) {
           $new_song = new Song();
-          $new_song->title = $faker->name;
+          $new_song->title = $faker->word;
           $new_song->genre = $faker->randomElement([
             'pop',
             'jazz',
@@ -34,7 +34,7 @@ class SongsTableSeeder extends Seeder
           $new_song->album_id = $i + 1;
           $new_song->save();
         }
-        
+
       }
     }
 }
