@@ -5,17 +5,22 @@
 @endsection
 
 @section('main_content')
-  <ul>
-    @foreach ($albums as $album)
-      <li>
-        <span>Nome Album: {{ $album->title }}</span>
-        <div>
-          <img src="{{ $album->covers->url }}" alt="{{ $album->title }}">
-        </div>
-        <br>
-        <a href="{{ route('album.show', $album) }}">Mostra dettagli</a>
-      </li>
-      <br>
-    @endforeach
-  </ul>
+<section id="album">
+  <div class="album-list">
+
+    <ul class="album-box">
+      @foreach ($albums as $album)
+        <li class="single-album">
+          <h2>{{ $album->title }}</h2>
+          <div class="border">
+            <a href="{{ route('album.show', $album) }}">
+              <img src="{{ $album->covers->url }}" alt="{{ $album->title }}">
+            </a>
+          </div>
+        </li>
+      @endforeach
+    </ul>
+
+  </div>
+</section>
 @endsection

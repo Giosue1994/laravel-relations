@@ -13,7 +13,7 @@ class CoversTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-      for ($i=0; $i < 3; $i++) {
+      for ($i=0; $i < 10; $i++) {
         $new_cover = new Cover();
         $new_cover->url = $faker->imageUrl(200, 200);
         $new_cover->album_id = $i + 1;
