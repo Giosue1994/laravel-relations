@@ -1,0 +1,27 @@
+/* ________ RESET ________ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ________ REGOLE GENERALI ________ */
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: red;
+}
+
+header nav {
+  height: 70px;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav .logo img {
+  width: 300px;
+}
+
