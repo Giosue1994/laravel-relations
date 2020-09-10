@@ -8,7 +8,6 @@ class Album extends Model
 {
     protected $fillable = [
       'title',
-      'artist',
       'year',
     ];
 

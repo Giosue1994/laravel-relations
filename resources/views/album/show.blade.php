@@ -9,7 +9,7 @@
   <div>
     <img src="{{ $album->covers->url }}" alt="{{ $album->title }}">
   </div>
-  <p>Artista: {{ $album->artist }}</p>
+  {{-- <p>Artista: {{ $album->artist }}</p> --}}
   <p>Anno: {{ $album->year }}</p>
 
   <h2>Lista Canzoni</h2>
