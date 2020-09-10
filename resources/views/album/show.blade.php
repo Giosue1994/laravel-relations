@@ -9,7 +9,7 @@
   <div>
     <img src="{{ $album->covers->url }}" alt="{{ $album->title }}">
   </div>
-  {{-- <p>Artista: {{ $album->artist }}</p> --}}
+  {{-- <p>Artista: {{ $artist->name }}</p> --}}
   <p>Anno: {{ $album->year }}</p>
 
   <h2>Lista Canzoni</h2>
@@ -19,6 +19,10 @@
     @endforeach
   </ul>
 
+  <div>
+    <a href="{{ route('album.edit', $album) }}">Modifica</a>
+  </div>
+  <br>
   <div>
     <a href="{{ route('album.index') }}">Home</a>
   </div>

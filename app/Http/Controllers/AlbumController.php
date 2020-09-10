@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Album;
+use App\Artist;
 
 class AlbumController extends Controller
 {
@@ -57,9 +58,14 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Album $album)
     {
-        //
+        $artists = Artist::all();
+
+        return view('album.edit', [
+          'album' => $album,
+          'artists' => $artists,
+        ]);
     }
 
     /**
@@ -69,9 +75,22 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Album $album)
     {
-        //
+        $data = $request->all();
+
+        // dd($data);
+
+        if (isset($data['artists'])) {
+          $album->artists()->sync($data['artists']);
+        } else {
+          $album->artists()->detach();
+        }
+
+
+        $album->update($data);
+
+        return redirect()->route('album.show', $album);
     }
 
     /**
