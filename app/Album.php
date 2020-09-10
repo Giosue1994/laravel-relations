@@ -18,4 +18,8 @@ class Album extends Model
     public function covers() {
       return $this->hasOne('App\Cover');
     }
+
+    public function artists() {
+      return $this->belongsToMany('App\Artist');
+    }
 }
