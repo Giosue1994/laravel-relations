@@ -11,7 +11,7 @@ class Cover extends Model
       'album_id',
     ];
 
-    public function album() {
+    public function albums() {
       return $this->belongsTo('App\Album');
     }
 }

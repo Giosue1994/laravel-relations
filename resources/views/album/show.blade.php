@@ -9,7 +9,12 @@
   <div>
     <img src="{{ $album->covers->url }}" alt="{{ $album->title }}">
   </div>
-  {{-- <p>Artista: {{ $artist->name }}</p> --}}
+  <p>
+    Artisti:
+    @foreach ($album->artists as $artist)
+      <p>{{ $artist->name }}</p>
+    @endforeach
+  </p>
   <p>Anno: {{ $album->year }}</p>
 
   <h2>Lista Canzoni</h2>

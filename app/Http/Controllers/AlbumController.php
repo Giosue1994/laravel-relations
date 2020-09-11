@@ -79,14 +79,11 @@ class AlbumController extends Controller
     {
         $data = $request->all();
 
-        // dd($data);
-
         if (isset($data['artists'])) {
           $album->artists()->sync($data['artists']);
         } else {
           $album->artists()->detach();
         }
-
 
         $album->update($data);
 
