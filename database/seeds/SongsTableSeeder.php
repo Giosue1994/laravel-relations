@@ -13,9 +13,9 @@ class SongsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-      for ($i=0; $i < 10; $i++) {
+      for ($i=0; $i < 3; $i++) {
 
-        for ($j=0; $j < 15; $j++) {
+        for ($j=0; $j < 8; $j++) {
           $new_song = new Song();
           $new_song->title = $faker->sentence(2);
           $new_song->genre = $faker->randomElement([

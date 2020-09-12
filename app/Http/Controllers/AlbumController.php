@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Faker\Generator as Faker;
 use App\Album;
 use App\Artist;
+use App\Song;
+use App\Cover;
 
 class AlbumController extends Controller
 {
@@ -27,7 +30,9 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+      $artists = Artist::all();
+
+      return view('album.create', compact('artists'));
     }
 
     /**
@@ -36,9 +41,32 @@ class AlbumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Faker $faker)
     {
-        //
+        $data = $request->all();
+
+        $new_album = new Album();
+        $new_album->title = $data['title'];
+        $new_album->year = $data['year'];
+        $new_album->save();
+
+        if (isset($data['artists'])) {
+          $new_album->artists()->sync($data['artists']);
+        }
+
+        // $new_song = new Song();
+        // $new_song->title = $data['title'];
+        // $new_song->genre = $data['genre'];
+        // $new_song->album_id = $new_album->id;
+        // $new_song->save();
+
+        $new_cover = new Cover();
+        $new_cover->url = $faker->imageUrl(200, 200);
+        $new_cover->album_id = $new_album->id;
+        $new_cover->save();
+
+
+        return redirect()->route('album.show', $new_album);
     }
 
     /**
@@ -61,10 +89,12 @@ class AlbumController extends Controller
     public function edit(Album $album)
     {
         $artists = Artist::all();
+        $songs = Song::all();
 
         return view('album.edit', [
           'album' => $album,
           'artists' => $artists,
+          'songs' => $songs,
         ]);
     }
 

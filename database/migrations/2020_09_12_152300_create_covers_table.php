@@ -14,13 +14,13 @@ class CreateCoversTable extends Migration
     public function up()
     {
         Schema::create('covers', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('album_id');
-            $table->string('url');
-            $table->timestamps();
-            $table->foreign('album_id')
-                  ->references('id')
-                  ->on('albums');
+          $table->id();
+          $table->unsignedBigInteger('album_id');
+          $table->string('url');
+          $table->timestamps();
+          $table->foreign('album_id')
+                ->references('id')
+                ->on('albums');
         });
     }
 

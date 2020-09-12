@@ -6,20 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
-    protected $fillable = [
-      'title',
-      'year',
-    ];
+  protected $fillable = [
+    'title',
+    'year',
+  ];
 
-    public function songs() {
-      return $this->hasMany('App\Song');
-    }
+  public function artists() {
+    return $this->belongsToMany('App\Artist');
+  }
 
-    public function covers() {
-      return $this->hasOne('App\Cover');
-    }
+  public function songs() {
+    return $this->hasMany('App\Song');
+  }
 
-    public function artists() {
-      return $this->belongsToMany('App\Artist');
-    }
+  public function covers() {
+    return $this->hasOne('App\Cover');
+  }
 }

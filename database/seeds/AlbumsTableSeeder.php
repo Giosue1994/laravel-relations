@@ -13,11 +13,11 @@ class AlbumsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 10; $i++) {
-          $new_album = new Album();
-          $new_album->title = $faker->word;
-          $new_album->year = $faker->year();
-          $new_album->save();
-        }
+      for ($i=0; $i < 3; $i++) {
+        $new_album = new Album();
+        $new_album->title = $faker->sentence(2);
+        $new_album->year = $faker->numberBetween(1920, 2020);
+        $new_album->save();
+      }
     }
 }

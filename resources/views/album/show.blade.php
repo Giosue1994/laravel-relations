@@ -20,7 +20,11 @@
   <h2>Lista Canzoni</h2>
   <ul>
     @foreach ($album->songs as $song)
-      <li>{{ $song->title }}</li>
+      <li>
+        <h3>{{ $song->title }}</h3>
+        <span>Genere:{{ $song->genre }}</span>
+        <br>
+      </li>
     @endforeach
   </ul>
 

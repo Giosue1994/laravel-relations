@@ -14,16 +14,16 @@ class CreateSongsTable extends Migration
     public function up()
     {
         Schema::create('songs', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('genre');
-            // creo una colonna senza assegnare un numero all'id
-            $table->unsignedBigInteger('album_id');
-            $table->timestamps();
-            // collego l'id creato ad un altra tabella
-            $table->foreign('album_id')
-                  ->references('id')
-                  ->on('albums');
+          $table->id();
+          $table->string('title');
+          $table->string('genre');
+          // creo una colonna senza assegnare un numero all'id
+          $table->unsignedBigInteger('album_id');
+          $table->timestamps();
+          // collego l'id creato ad un altra tabella
+          $table->foreign('album_id')
+                ->references('id')
+                ->on('albums');
         });
     }
 

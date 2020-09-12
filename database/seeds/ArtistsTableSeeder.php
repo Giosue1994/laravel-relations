@@ -13,12 +13,14 @@ class ArtistsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 50 ; $i++) {
+        for ($i=0; $i < 10; $i++) {
           $new_artist = new Artist();
           $new_artist->name = $faker->name;
-          $new_artist->year = $faker->numberBetween(5, 99);
+          $new_artist->age = $faker->numberBetween(5, 99);
           $new_artist->biography = $faker->realText(1000);
           $new_artist->save();
+
+          $new_artist->albums()->attach(rand(1, 3));
         }
     }
 }

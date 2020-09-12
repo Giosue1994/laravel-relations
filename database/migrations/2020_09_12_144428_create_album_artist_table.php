@@ -14,15 +14,15 @@ class CreateAlbumArtistTable extends Migration
     public function up()
     {
         Schema::create('album_artist', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('album_id');
-            $table->foreign('album_id')
-                  ->references('id')
-                  ->on('albums');
-            $table->unsignedBigInteger('artist_id');
-            $table->foreign('artist_id')
-                  ->references('id')
-                  ->on('artists');
+          $table->id();
+          $table->unsignedBigInteger('album_id');
+          $table->foreign('album_id')
+                ->references('id')
+                ->on('albums');
+          $table->unsignedBigInteger('artist_id');
+          $table->foreign('artist_id')
+                ->references('id')
+                ->on('artists');
         });
     }
 

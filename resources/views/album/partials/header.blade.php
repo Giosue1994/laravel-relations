@@ -4,6 +4,6 @@
   </div>
 
   <div class="menu">
-
+    <a href="{{ route('album.create') }}">Crea il tuo album</a>
   </div>
 </nav>
